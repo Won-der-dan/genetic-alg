@@ -164,11 +164,11 @@ class Task2:
         j = dict(value=real_price, weight=real_weight, volume=real_volume, items=items)
         return j
 
-    def __init__(self):
+    def __init__(self, data):
         self.data = data
         self.population = list()
-        self.max_weight = 0
-        self.max_volume = 0
+        self.max_weight = max_weight
+        self.max_volume = max_volume
 
     def run(self):
         prev_best = 0
@@ -190,8 +190,8 @@ class Task2:
 
 
 result1 = task1(data)
-task2 = Task2()
+task2 = Task2(data)
 result2 = task2.run()
 
 full_result = {"1": result1, "2": result2}
-print(json.dumps(full_result, indent=4))
+print(json.dumps(full_result, indent=4, sort_keys=True))
